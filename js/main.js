@@ -72,6 +72,9 @@ btnTienDien.onclick = function () {
         tienDien = 50 * 500 + 50 * 650 + 100 * 850 + 200 * 1100 + (soDien - 350) * 1300 ;
       }
 
-      document.getElementById("tienDien").innerHTML = "Tiền điện của nhà " + chuHo + " là : " + tienDien + " VND";
+      const config = { style: "currency", currency: "VND" };
+      const formated = new Intl.NumberFormat("vi-VN", config);
+  
+      document.getElementById("tienDien").innerHTML = "Tiền điện của nhà " + chuHo + " là : " + formated.format(tienDien);
 
 }
