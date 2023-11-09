@@ -87,10 +87,44 @@
                             <input id="soDien" type="number" class="form-control">
                         </div>
 
-                        <button id="btnTienDien" class="btn btn-danger">Tính tiền điện</button>
+                        <button id="btnTienDien" class="btn btn-success">Tính tiền điện</button>
                     </div>
                     <div class="card-footer text-muted">
                         <p id="tienDien"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tính thuế thu nhập -->
+    <hr>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        TÍNH THUẾ THU NHẬP
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label>Họ tên : </label>
+                            <input id="hoTen" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Tổng thu nhập năm nay (đơn vị triệu đồng)</label>
+                            <input id="thuNhap" type="number" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Số người phụ thuộc</label>
+                            <input id="phuThuoc" type="number" class="form-control">
+                        </div>
+
+                        <button id="btnThue" class="btn btn-danger">Tính tiền thuế</button>
+                    </div>
+                    <div class="card-footer text-muted">
+                        <p id="thuNhapChiuThue"></p>
+                        <p id="tienThue"></p>
                     </div>
                 </div>
             </div>
