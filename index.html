@@ -131,6 +131,47 @@
         </div>
     </div>
 
+    <!-- Tính hóa đơn tiền cáp -->
+    <hr>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        TÍNH HÓA ĐƠN TIỀN CAP
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label>Mã khách hàng </label>
+                            <input id="maKhachHang" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Loại khách hàng</label>
+                            <select class="form-control" id="loaiKhachHang" onchange="myFunction()">
+                                <option value="0"></option>
+                                <option value="1">Doanh nghiệp</option>
+                                <option value="2" >Nhà dân</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Số kết nối</label>
+                            <input id="soKetNoi" type="number" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Số kênh cao cấp đăng ký : </label>
+                            <input id="soKenhCaoCap" type="number" class="form-control">
+                        </div>
+
+                        <button id="btnTienCap" class="btn btn-success">Tính tiền cap</button>
+                    </div>
+                    <div class="card-footer text-muted">
+                        <p id="chiPhi"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <br>
     <br>
     <br>

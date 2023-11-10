@@ -123,30 +123,91 @@ Chương trình tính thuế thu nhập
 
 var btnThue = document.getElementById("btnThue");
 btnThue.onclick = function () {
-  var hoTen = document.getElementById("hoTen").value ;
+  var hoTen = document.getElementById("hoTen").value;
   var thuNhap = document.getElementById("thuNhap").value * 1;
   var phuThuoc = document.getElementById("phuThuoc").value * 1;
   var thuNhapChiuThue = 0;
   var tienThue = 0;
 
-  thuNhapChiuThue = thuNhap - 4 - phuThuoc * 1.6 ;
+  thuNhapChiuThue = thuNhap - 4 - phuThuoc * 1.6;
 
   if (thuNhapChiuThue <= 60) {
-    tienThue = thuNhapChiuThue * 0.05 ;
+    tienThue = thuNhapChiuThue * 0.05;
   } else if (60 < thuNhapChiuThue && thuNhapChiuThue <= 120) {
-    tienThue = thuNhapChiuThue * 0.1 ;
+    tienThue = thuNhapChiuThue * 0.1;
   } else if (120 < thuNhapChiuThue && thuNhapChiuThue <= 210) {
-    tienThue = thuNhapChiuThue * 0.15 ;
+    tienThue = thuNhapChiuThue * 0.15;
   } else if (210 < thuNhapChiuThue && thuNhapChiuThue <= 384) {
-    tienThue = thuNhapChiuThue * 0.2 ;
+    tienThue = thuNhapChiuThue * 0.2;
   } else if (384 < thuNhapChiuThue && thuNhapChiuThue <= 624) {
-    tienThue = thuNhapChiuThue * 0.25 ;
+    tienThue = thuNhapChiuThue * 0.25;
   } else if (624 < thuNhapChiuThue && thuNhapChiuThue <= 960) {
-    tienThue = thuNhapChiuThue * 0.3 ;
+    tienThue = thuNhapChiuThue * 0.3;
   } else {
-    tienThue = thuNhapChiuThue * 0.35 ;
+    tienThue = thuNhapChiuThue * 0.35;
   }
 
   document.getElementById("thuNhapChiuThue").innerHTML = "Thu nhập chịu thuế là : " + thuNhapChiuThue + " (triệu đồng)";
   document.getElementById("tienThue").innerHTML = "Tiền thuế cần nộp là : " + tienThue.toFixed(2) + " (triệu đồng)";
+}
+
+/*
+Chương trình tính cáp
+■ Input
+- Nhập mã khách hàng
+- Nhập loại khách hàng
+- Số kết nối 
+  + Doanh nghiệp : cho nhập số kết nối
+  + Nhà dân : chỉ có 1 nên không cần nhập số kết nối (hide or disabled)
+
+■ Process
+- Tạo biến
+  + maKhachHang (TH đã đăng kí, có thông tin loign)
+  + loaiKhachHang (dropdownlist : Doanh nghiệp, Nhà dân)
+  + soKetNoi
+  + chiPhi
+- Xử lý
+  + Tạo flowchat
+
+- Xuất kết quả
+  + ketQua.innerHTML = 
+
+■ Output
+- Tính hóa đơn của khách hàng, theo quy định và mức giá đã đưa ra.
+*/
+
+// function myFunction () {
+//   document.getElementById("soKetNoi").disabled = true ;
+// }
+
+function myFunction() {
+  var loaiKhachHang = document.getElementById("loaiKhachHang").value;
+  
+  if (loaiKhachHang == 2) {
+    document.getElementById("soKetNoi").disabled = true;
+  } else {
+    document.getElementById("soKetNoi").disabled = false;
+  }
+}
+
+var btnTienCap = document.getElementById("btnTienCap");
+btnTienCap.onclick = function () {
+  var maKhachHang = document.getElementById("maKhachHang").value;
+  var loaiKhachHang = document.getElementById("loaiKhachHang").value;
+  var soKetNoi = document.getElementById("soKetNoi").value * 1;
+  var soKenhCaoCap = document.getElementById("soKenhCaoCap").value * 1;
+  var chiPhi = 0;
+
+  if (loaiKhachHang == 2) {
+    soKetNoi.disabled = true;
+    chiPhi = 4.5 + 20.5 + 7.5 * soKenhCaoCap;
+  } else {
+    if (soKetNoi <= 10) {
+      chiPhi = 15 + 75 + 50 * soKenhCaoCap;
+    } else {
+      chiPhi = 15 + 75 + (soKetNoi - 10) * 5 + 50 * soKenhCaoCap;
+    }
+  }
+
+  document.getElementById("chiPhi").innerHTML = "Chi phí hóa đơn của khách hàng " + maKhachHang + " là : " + chiPhi + " $";
 }
