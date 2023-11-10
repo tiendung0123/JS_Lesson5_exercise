@@ -182,7 +182,7 @@ Chương trình tính cáp
 
 function myFunction() {
   var loaiKhachHang = document.getElementById("loaiKhachHang").value;
-  
+
   if (loaiKhachHang == 2) {
     document.getElementById("soKetNoi").disabled = true;
   } else {
@@ -199,7 +199,6 @@ btnTienCap.onclick = function () {
   var chiPhi = 0;
 
   if (loaiKhachHang == 2) {
-    soKetNoi.disabled = true;
     chiPhi = 4.5 + 20.5 + 7.5 * soKenhCaoCap;
   } else {
     if (soKetNoi <= 10) {
